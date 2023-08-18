@@ -19,21 +19,24 @@ UniversalSection:NewButton("Ctrl + Click TP", "Ctrl + Click to teleport", functi
     loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Click%20Teleport.txt"))()
 end)
 
-UniversalSection:NewSlider("Speed", "Update Player Speed", 500, 16, function(speed) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+UniversalSection:NewSlider("Speed", "Update Player Speed", 500, 16, function(speed)
+local player = game.Players.LocalPlayer
+local char = player.Character
+local hum = char.WaitForChild("Humanoid")
+    hum.WalkSpeed = speed
 end)
 
-UniversalSection:NewSlider("Jump Power", "Update Player Jump Power", 500, 50, function(speed) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = speed
+UniversalSection:NewSlider("Jump Power", "Update Player Jump Power", 500, 50, function(power)
+    hum.JumpPower = power
 end)
 
 UniversalSection:NewToggle("Toggle Super-Human", "Walk faster, jump higher", function(state)
     if state then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+        hum.WalkSpeed = 120
+        hum.JumpPower = 120
     else
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        hum.WalkSpeed = 16
+        hum.JumpPower = 50
     end
 end)
 
