@@ -29,7 +29,7 @@ plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", 
 end)
 
 --noclip
-Section:NewToggle("Noclip", "Walk Thru Walls", function(state)
+plrChanges:NewToggle("Noclip", "Walk Thru Walls", function(state)
     if state then
         local Noclip = nil
 local Clip = nil
