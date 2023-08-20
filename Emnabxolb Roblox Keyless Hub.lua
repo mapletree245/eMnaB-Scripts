@@ -68,7 +68,7 @@ local games = Window:NewTab("Supported Games")
 local doors = games:NewSection("Doors")
 
 doors:NewButton("Doors", "Open the Doors panel", function()
-    loadstring(game:HttpGet(''))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/mapletree245/eMnaB-Scripts/main/Emnab-Doors.lua'))()
 end)
 
 --Tab: Credits & Updates
