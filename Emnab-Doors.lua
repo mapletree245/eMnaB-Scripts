@@ -1,15 +1,22 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("DOORS", "BloodTheme")
 
---plr
+--tab: plr
 local ws = 15
 local player = Window:NewTab("LocalPlayer")
 local plrChanges = player:NewSection("Player Changes")
 
+--spd
 plrChanges:NewSlider("Walkspeed", "SPEEEED!!", 21, 15, function(speed) -- 500 (MaxValue) | 0 (MinValue)
     ws = speed
 end)
 
+while true do
+  wait()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+    end
+
+--gm
 plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", function(state)
     if state then
         local Col = game.Players.LocalPlayer.Character:FindFirstChild("Collision")
@@ -21,6 +28,7 @@ plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", 
     end
 end)
 
+--noclip
 Section:NewToggle("Noclip", "Walk Thru Walls", function(state)
     if state then
         local Noclip = nil
@@ -47,9 +55,4 @@ end
 end
     end
 end)
-
-while true do
-  wait()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-    end
 
