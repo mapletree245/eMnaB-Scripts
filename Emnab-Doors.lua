@@ -21,15 +21,9 @@ plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", 
     end
 end)
 
-getgenv().Toggled = false
-
-local toggle = plrChanges:NewToggle("Noclip", "Go thru walls", (state)
-    getgenv().Toggled = state
-end)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-	if getgenv().Toggled then
-		local Noclip = nil
+Section:NewToggle("Noclip", "Walk Thru Walls", function(state)
+    if state then
+        local Noclip = nil
 local Clip = nil
 
 function noclip()
@@ -46,14 +40,13 @@ function noclip()
 	end
 	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
 end
-	else
-		function clip()
+    else
+        function clip()
 	if Noclip then Noclip:Disconnect() end
 	Clip = true
 end
-	end
+    end
 end)
-
 
 while true do
   wait()
