@@ -10,7 +10,7 @@ plrChanges:NewSlider("Walkspeed", "SPEEEED!!", 21, 15, function(speed) -- 500 (M
     ws = speed
 end)
 
-plrChanges:NewToggle("God Mode", "Harmless Rush & Ambush", function(state)
+plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", function(state)
     if state then
         local Col = game.Players.LocalPlayer.Character:FindFirstChild("Collision")
         Col.Position = Col.Position - Vector3.new(0,10,0) 
@@ -20,6 +20,40 @@ plrChanges:NewToggle("God Mode", "Harmless Rush & Ambush", function(state)
         Col.Position = Col.Position + Vector3.new(0,10,0) 
     end
 end)
+
+getgenv().Toggled = false
+
+local toggle = plrChanges:NewToggle("Noclip", "Go thru walls", (state)
+    getgenv().Toggled = state
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if getgenv().Toggled then
+		local Noclip = nil
+local Clip = nil
+
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21) -- basic optimization
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+	else
+		function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+	end
+end)
+
 
 while true do
   wait()
