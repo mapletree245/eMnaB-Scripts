@@ -68,7 +68,14 @@ local games = Window:NewTab("Supported Games")
 local doors = games:NewSection("Doors")
 
 doors:NewButton("Doors", "Open the Doors panel", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/mapletree245/eMnaB-Scripts/main/Emnab-Doors.lua'))()
+	if game.PlaceId == 6516141723 then
+    	loadstring(game:HttpGet('https://raw.githubusercontent.com/mapletree245/eMnaB-Scripts/main/Emnab-Doors.lua'))()
+		else
+		local DoorsWindow = Library.CreateLib("DOORS", "Midnight")
+			local doorsError = DoorsWindow:NewTab("Error")
+			doorsError:NewLabel("Error: Incorrect PlaceId")
+		
+	end
 end)
 
 --Tab: Credits & Updates
