@@ -1,3 +1,2 @@
-if game.PlaceID == 6839171747 then
-loadstring(game:HttpGet("https://pastebin.com/raw/gW3xadRV"))()
-end
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("DOORS", "Midnight")
