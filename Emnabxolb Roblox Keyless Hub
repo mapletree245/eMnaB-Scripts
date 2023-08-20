@@ -63,6 +63,14 @@ PlrESP:NewButton("Player ESP", "See players thru walls :)", function()
     loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/WRD%20ESP.txt"))()
 end)
 
+--Tab: Games
+local games = Window:NewTab("Supported Games")
+local doors = games:NewSection("Doors")
+
+doors:NewButton("Doors", "Open the Doors panel", function()
+    loadstring(game:HttpGet(''))()
+end)
+
 --Tab: Credits & Updates
 local credits = Window:NewTab("Credits & Updates")
 local credSection = credits:NewSection("--Credits--")
@@ -73,3 +81,4 @@ local updatesSection = credits:NewSection("--Updates--")
 
 updatesSection:NewLabel("Emnabxolb Keyless Hub v2 (18/08/23)")
 updatesSection:NewLabel("Just released on GitHub")
+
