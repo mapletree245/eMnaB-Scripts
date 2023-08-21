@@ -70,11 +70,6 @@ local doors = games:NewSection("Doors")
 doors:NewButton("Doors", "Open the Doors panel", function()
 	if game.PlaceId == 6839171747 then
     	loadstring(game:HttpGet('https://raw.githubusercontent.com/mapletree245/eMnaB-Scripts/main/Emnab-Doors.lua'))()
-		else
-		local DoorsWindow = Library.CreateLib("DOORS", "Midnight")
-			local doorsError = DoorsWindow:NewTab("Error")
-			doorsError:NewLabel("Error: Incorrect PlaceId")
-		
 	end
 end)
 
@@ -86,6 +81,6 @@ credSection:NewLabel("Kavo UI, Made by mapletree245 (Emnabxolb)")
 
 local updatesSection = credits:NewSection("--Updates--")
 
-updatesSection:NewLabel("Emnabxolb Keyless Hub v2 (20/08/23)")
+updatesSection:NewLabel("Emnabxolb Keyless Hub v2 (21/08/23)")
 updatesSection:NewLabel("Just released on GitHub")
 
