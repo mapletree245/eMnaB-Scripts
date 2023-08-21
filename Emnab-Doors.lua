@@ -11,11 +11,6 @@ plrChanges:NewSlider("Walkspeed", "SPEEEED!!", 21, 15, function(speed) -- 500 (M
     ws = speed
 end)
 
-while true do
-  wait()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-    end
-
 --gm
 plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", function(state)
     if state then
@@ -29,9 +24,7 @@ plrChanges:NewToggle("God Mode/No-clip Bypass", "Needs Regular Noclip as well", 
 end)
 
 --noclip
-plrChanges:NewToggle("Noclip", "Walk Thru Walls", function(state)
-    if state then
-        local Noclip = nil
+local Noclip = nil
 local Clip = nil
 
 function noclip()
@@ -48,11 +41,22 @@ function noclip()
 	end
 	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
 end
-    else
-        function clip()
+
+function clip()
 	if Noclip then Noclip:Disconnect() end
 	Clip = true
 end
+
+Section:NewToggle("Regular Noclip", "Go thru walls", function(state)
+    if state then
+       noclip()
+    else
+        clip()
     end
 end)
+
+while true do
+  wait()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+    end
 
