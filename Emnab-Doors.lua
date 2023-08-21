@@ -47,7 +47,7 @@ function clip()
 	Clip = true
 end
 
-Section:NewToggle("Regular Noclip", "Go thru walls", function(state)
+plrChanges:NewToggle("Regular Noclip", "Go thru walls", function(state)
     if state then
        noclip()
     else
