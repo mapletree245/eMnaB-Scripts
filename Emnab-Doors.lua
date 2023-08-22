@@ -26,6 +26,7 @@ end)
 --noclip
 local Noclip = nil
 local Clip = nil
+local keyNC = N
 
 function noclip()
 	Clip = false
@@ -53,6 +54,23 @@ plrChanges:NewToggle("Regular Noclip", "Go thru walls", function(state)
     else
         clip()
     end
+end)
+
+plrChanges:NewTextBox("Noclip Keybind", "Bind a kay to activate noclip", function(keybind)
+	keyNC = keybind
+		local UIS = game:GetService("UserInputService")
+
+		UIS.InputBegan:Connect(function()
+				if input.UserInputType == Enum.UserInputType.Keyboard then
+					if input.KeyCode == Enum.KeyCode.keyNC then
+						if Clip == true
+						noclip()
+						else
+						clip()	
+						end
+					end
+				end
+		end)
 end)
 
 --finish ws
