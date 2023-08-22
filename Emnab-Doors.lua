@@ -55,16 +55,6 @@ plrChanges:NewToggle("Regular Noclip", "Go thru walls", function(state)
     end
 end)
 
-plrChanges:NewKeybind("Toggle Noclip", "Quickly be able to clip/noclip", Enum.KeyCode.N, function()
-	if Clip == true then 
-	noclip()		
-	else
-	clip()		
-	end
-	
-end)
-
-
 --finish ws
 while true do
   wait()
