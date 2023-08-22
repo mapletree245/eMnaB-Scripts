@@ -55,6 +55,7 @@ plrChanges:NewToggle("Regular Noclip", "Go thru walls", function(state)
     end
 end)
 
+--finish ws
 while true do
   wait()
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
