@@ -55,9 +55,43 @@ plrChanges:NewToggle("Regular Noclip", "Go thru walls", function(state)
     end
 end)
 
+--tab: Entities
+local entity = Window:NewTab("Entities")
+local gameman = entity:NewTab("Main Game")
+local rooms = entity:NewTab("Rooms")
+
+--no seek
+local NoSeek = false
+
+gameman:NewToggle("Disable Seek", "Stop Seek Chase From Occurring (Not FE)", function(state)
+    if state then
+        NoSeek = state
+    else
+        NoSeek = state
+    end
+end)
+
+--NO FREAKING SNARE
+gameman:NewButton("No Snare", "Remove Spiky Horse Poop", function()
+    game:GetService("Workspace").CurrentRooms["38"].Assets.Snare.Hitbox:Destroy()
+end)
+
 --finish ws
+
+LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
+    local curval = LatestRoom.Value
+    local newroom = game.Workspace.CurrentRooms[tostring(curval)
+    if NoSeek then
+        local trigger = newroom:FindFirstChild("TriggerEventCollision")
+
+        if trigger then
+            trigger:Destroy() 
+        end
+    end
+end)
+
 while true do
   wait()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-    end
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+end
 
