@@ -57,18 +57,18 @@ end)
 
 --tab: Entities
 local entity = Window:NewTab("Entities")
-local gameman = entity:NewTab("Main Game")
-local rooms = entity:NewTab("Rooms")
+local gameman = entity:NewSection("Main Game")
+local rooms = entity:NewSection("Rooms")
 
 --no seek
 local NoSeek = false
 
 gameman:NewToggle("Disable Seek", "Stop Seek Chase From Occurring (Not FE)", function(state)
     if state then
-        NoSeek = state
-    else
-        NoSeek = state
-    end
+		NoSeek = true
+	else
+	NoSeek = false
+	end
 end)
 
 --NO FREAKING SNARE
@@ -77,10 +77,11 @@ gameman:NewButton("No Snare", "Remove Spiky Horse Poop", function()
 end)
 
 --finish ws
+local LatestRoom = game:GetService("ReplicatedStorage").GameData.LatestRoom
 
 LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
     local curval = LatestRoom.Value
-    local newroom = game.Workspace.CurrentRooms[tostring(curval)
+    local newroom = game.Workspace.CurrentRooms[tostring(curval)]
     if NoSeek then
         local trigger = newroom:FindFirstChild("TriggerEventCollision")
 
@@ -94,4 +95,3 @@ while true do
   wait()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
 end
-
